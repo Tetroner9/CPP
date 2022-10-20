@@ -4,158 +4,203 @@ using namespace std;
 
 class Hospital
 {
-    public:
-    int AvailableBeds;
-    float ratings,bed_price;
-    string hospital_name,location;
-    string contact_no;
-    geth_data()
+public:
+    string hospital_name,location,contact;
+    int available_beds,beds_price;
+    float rating;
+    void getHospitalData()
     {
-        cout<<"\nHospital Name: ";
-        getline(cin,hospital_name);
-        cout<<"Location: ";
-        getline(cin,location);
-        cout<<"Ratings: ";
-        cin>>ratings;
-        cout<<"Bed Price: ";
-        cin>>bed_price;
-        cout<<"Available Beds: ";
-        cin>>AvailableBeds;
-        cout<<"Contact No: ";
-        getline(cin,contact_no);
-    }
-    updateh_data()
-    {
+        
+        cout<<"\nEnter the hospital name:"<<endl;
+        cin>>hospital_name;
         cin.ignore();
-        cout<<"\nHospital Name: ";
-        getline(cin,hospital_name);
-        cout<<"Location: ";
+        cout<<"Enter the location:"<<endl;
         getline(cin,location);
-        cout<<"Ratings: ";
-        cin>>ratings;
-        cout<<"Bed Price: ";
-        cin>>bed_price;
-        cout<<"Available Beds: ";
-        cin>>AvailableBeds;
-        cout<<"Contact No: ";
-        cin>>contact_no;
+        cout<<"Enter the rating:"<<endl;
+        cin>>rating;
+        cout<<"Enter contact:"<<endl;
+        cin>>contact;
+        cout<<"enter price per bed"<<endl;
+        cin>>beds_price;
     }
-    printh_data()
+
+    void printhospitaldata()
     {
-        cout<<"Hospital Name: "<<hospital_name<<endl;
-        cout<<"Location: "<<location<<endl;
-        cout<<"Ratings: "<<ratings<<endl;
-        cout<<"Bed Price: "<<bed_price<<endl;
-        cout<<"Available Beds: "<<AvailableBeds<<endl;
-        cout<<"Contact No: "<<contact_no<<endl;
+        cout<<"\nHospital's name:"<<hospital_name<<endl;
+        cout<<"Location:"<<location<<endl;
+        cout<<"Available beds:"<<available_beds<<endl;
+        cout<<"Rating:"<<rating<<endl;
+        cout<<"Contact:"<<contact<<endl;
+        cout<<"Price per bed:"<<beds_price<<endl;
+    }
+
+    int searchHospitalbyName(string hosp_name)
+    {
+        int x=1;
+        if(hospital_name==hosp_name)
+        {
+            cout<<"\nMatch found"<<endl;
+            return x;
+        }
+        else{
+            cout<<"\nNot found"<<endl;
+            x=2;
+            return x;
+        }
+    }
+
+    int searchbyavailablebeds(int avail_bed)
+    {
+        int y=1;
+        if(available_beds==avail_bed)
+        {
+            cout<<"\nMatch found"<<endl;
+            return y;
+        }
+        else{
+            cout<<"\nNot found"<<endl;
+            y=2;
+            return y;
+        }
+    }
+
+    void updatehospitalinfo()
+    {
+        
+        cout<<"\nEnter the hospital name:"<<endl;
+        cin>>hospital_name;
+        cin.ignore();
+        cout<<"Enter the location:"<<endl;
+        getline(cin,location);
+        cout<<"Enter the rating:"<<endl;
+        cin>>rating;
+        cout<<"Enter contact:"<<endl;
+        cin>>contact;
+        cout<<"enter price per bed"<<endl;
+        cin>>beds_price;
     }
 };
-class Patient:public Hospital
+
+class Patient : public Hospital
 {
-    public:
-    string patient_name,p_hospital_name;
-    int patient_id;
-    getp_data()
+public:
+    string P_name;
+    int P_id;
+    void getPatientData()
     {
         cin.ignore();
-        cout<<"\nPatient Name: ";
-        getline(cin,patient_name);
-        cout<<"Patient ID: ";
-        cin>>patient_id;
-        cout<<"Hospital Name: ";
-        getline(cin,p_hospital_name);
-        cin.ignore();
+        cout<<"\nEnter Patient's Name:"<<endl;
+        getline(cin,P_name);
+        cout<<"Enter Patient's Id:"<<endl;
+        cin>>P_id;
     }
-    updatep_data()
+
+    void printpatientdata()
+    {
+        cout<<"\nPatient Name:"<<P_name<<endl;
+        cout<<"Patient's Id:"<<P_id<<endl;
+    }
+
+    void updatepatientdata()
     {
         cin.ignore();
-        cout<<"\nPatient Name: ";
-        getline(cin,patient_name);
-        cout<<"Patient ID: ";
-        cin>>patient_id;
-        cout<<"Hospital Name: ";
-        getline(cin,p_hospital_name);
-        cin.ignore();
+        cout<<"\nEnter Patient's Name:"<<endl;
+        getline(cin,P_name);
+        cout<<"Enter Patient's Id:"<<endl;
+        cin>>P_id;
     }
-    printp_data()
-    {
-        cout<<"Patient Name: "<<patient_name<<endl;
-        cout<<"Patient ID: "<<patient_id<<endl;
-        cout<<"Hospital Name: "<<p_hospital_name<<endl;
-    }
+
 };
+
 int main()
 {
-    int n,choice;
-    Patient p;
-    Patient pn[20];
-    p.geth_data();
-    char cam='y';
-    cout<<"Enter No. of Patients: ";
-    cin>>n;
-    for(int i=0;i<n;i++)
+    Hospital h[50];
+    Patient p[50];
+    int updatechoice, i=0,avail_bed,t,noofpatients,newnoofpatients,x,y;
+    string hosp_name;
+    char choice;
+    
+    cout<<"Enter no. of patients"<<endl;
+    cin>>noofpatients;
+    for(i=0;i<1;i++)
     {
-        pn[i].getp_data();
+        h[i].getHospitalData();
     }
-    while(cam=='y')
     {
-        cout<<"\nEnter your choice:\n1.Print Hospital Data\n2.Print Patient Data\n3.Search Patient by Hospital Name\n4.Search Hospital Beds\n5.Update Data\n6.Exit";
-        cin>>choice;
-        switch(choice)
+    for(i=0;i<noofpatients;i++)
+        p[i].getPatientData();
+    }
+    while(1)
+    {
+        cout<<"\n1.print hospital's data"<<endl;
+        cout<<"2.print patient's data"<<endl;
+        cout<<"3.search hospital by name"<<endl;
+        cout<<"4.search by available beds"<<endl;
+        cout<<"5.update info"<<endl;
+        cout<<"6.exit"<<endl;
+        cout<<"enter choice"<<endl;
+        cin>>updatechoice;
+        switch(updatechoice)
         {
+
         case 1:
-            cout<<"Hospital Info: \n"<<endl;
-            p.printh_data();
-
-
+            for(i=0;i<1;i++)
+            h[i].printhospitaldata();
+            i++;
             break;
+
         case 2:
-            cout<<"Patients Info: \n"<<endl;
-            for(int i=0;i<n;i++)
-            {
-                pn[i].printp_data();
+            for(i=0;i<noofpatients;i++){
+                p[i].printpatientdata();
+                cout<<"\n";
             }
-            break;
+                break;
+
         case 3:
-            cout<<"Enter Hospital Name: \n"<<endl;
-            break;
-        case 4:
-            cout<<"";
-            break;
-        case 5:
-            char ch;
-            cout<<"What would you like to change? h or p\n(Changing Data will result in deletion of old data)";
-            cin>>ch;
-            if(ch=='h')
+        cin.ignore();
+            getline(cin,hosp_name);
+            for(t=0;t<1;t++)
             {
-                p.updateh_data();
+               x=h[t].searchHospitalbyName(hosp_name);
+               if(x==1)
+                h[t].printhospitaldata();
+                
             }
-            else if(ch=='p')
+                break;
+
+        case 4:
+            cin>>avail_bed;
+            for(t=0;t<1;t++)
             {
-                cout<<"Enter No. of Patients: ";
-                cin>>n;
-                for(int i=0;i<n;i++)
-                    {
-                        pn[i].updatep_data();
-                    }
+               y=h[t].searchbyavailablebeds(avail_bed);
+               if(y==1)
+               h[t].printhospitaldata();
+            }
+
+                break;
+        case 5:
+            cout<<"\nWhat would you like to update? p or h?"<<endl;
+            cin>>choice;
+            if(choice=='p'){
+                cout<<"Enter new number of patients"<<endl;
+                cin>>newnoofpatients;
+                for(i=0;i<noofpatients;i++)
+                p[i].updatepatientdata();
+            }
+            else if(choice=='h'){
+                cout<<"Enter new hospital data"<<endl;
+                for(i=0;i<1;i++)
+                h[i].updatehospitalinfo();
             }
             else{
-                cout<<"\nWrong Choice";
+                cout<<"Wrong choice!"<<endl;
             }
             break;
+
         case 6:
             exit(0);
             break;
-        default:
-            cout<<"\nWrong Choice!";
-
         }
-        cout<<"\nDo you wish to continue? y or n";
-        cin>>cam;
-
-
     }
-
     return 0;
 }
-

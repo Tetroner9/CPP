@@ -17,7 +17,7 @@ class Triangle : public Rectangle
    public:
    void readdata()
    {
-     cout << "Enter base and height= "; 
+     cout << "\nEnter base and height= "; 
      cin>>ba>>h;
    }
    void product()
