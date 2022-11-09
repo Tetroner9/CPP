@@ -1,12 +1,12 @@
 #include<iostream>
 using namespace std;
-class student
+class Student
 {
  int rno,percentage;
  char name[10];
  double marks;
  public:
- student()
+ Student()
  {
  cout<<"Enter the roll no: ";
  cin>>rno;
@@ -30,8 +30,8 @@ class student
 };
  int main()
  {
- student s;
- s.display();
- return 0;
+    Student s;
+    s.display();
+    return 0;
  }
  
