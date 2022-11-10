@@ -1,41 +1,43 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-float volume;
-void vol(int s)
+int area_shape;
+void area(int s)
 {
-    volume=s*s*s;
-    cout<<"Volume of cube is :"<<volume<<endl;
+    area_shape = s * s;
+    cout<<"Shape of square: "<<area_shape<<endl;
 }
-void vol(float w,float h,float l)
+void area(int l, int w)
 {
-    volume=w*h*l;
-    cout<<"Volume of cuboid is: "<<volume<<endl;
+    area_shape = l * w;
+    cout<<"Shape of recntangle: "<<area_shape<<endl;
 }
-void vol(float r,float he)
+void area(float b, float h)
 {
-    volume=3.14*(r*r)*he;
-    cout<<"Volume of cylinder is: "<<volume<<endl;
+    area_shape = 0.5 * b * h;
+    cout<<"Shape of triangle: "<<area_shape<<endl;
 }
-void vol(float ra)
+void area(float r)
 {
-    volume=1.33*3.14*(ra*ra*ra);
-    cout<<"Volume of sphere is: "<<volume<<endl;
+    area_shape = 3.14 * (r*r);
+    cout<<"Shape of circle: "<<area_shape<<endl;
 }
 int main()
 {
-    float s,w,h,l,r,he,ra;
-    cout<<"Enter side of cube: ";
+    int s,l,w;
+    float b,h,r;
+    cout<<"Side of square: "<<endl;
     cin>>s;
-    cout<<"Enter width, height and length of cuboid: ";
-    cin>>w>>h>>l;
-    cout<<"Enter radius and height of cylinder: ";
-    cin>>r>>he;
-    cout<<"Enter radius of sphere: ";
-    cin>>ra;
+    cout<<"Length and width of rectangle: "<<endl;
+    cin>>l>>w;
+    cout<<"Base and height of triangle: "<<endl;
+    cin>>b>>h;
+    cout<<"Radius of circle: "<<endl;
+    cin>>r;
     cout<<endl;
-    vol(s);
-    vol(w,h,l);
-    vol(r,he);
-    vol(ra);
+
+    area(s);
+    area(l,w);
+    area(b,h);
+    area(r);
     return 0;
 }

@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
-float volume;
-void vol(int s)
+float area_shape;
+void area(int s)
 {
-    volume=s*s*s;
-    cout<<"Volume of cube is:"<<volume<<endl;
+    area=s*s*s;
+    cout<<"Volume of cube is:"<<area<<endl;
 }
 void vol(float w,float h,float l)
 {
-    volume=w*h*l;
-    cout<<"Volume of cuboid is:"<<volume<<endl;
+    area=w*h*l;
+    cout<<"Volume of cuboid is:"<<area<<endl;
 }
 void vol(float r,float he)
 {
-    volume=3.14*(r*r)*he;
-    cout<<"Volume of cylinder is:"<<volume<<endl;
+    area=3.14*(r*r)*he;
+    cout<<"Volume of cylinder is:"<<area<<endl;
 }
 int main()
 {
@@ -26,7 +26,7 @@ int main()
     cout<<"Enter radius and height of cylinder:";
     cin>>r>>he;
     cout<<endl;
-    vol(s);
+    area(s);
     vol(w,h,l);
     vol(r,he);
     return 0;
